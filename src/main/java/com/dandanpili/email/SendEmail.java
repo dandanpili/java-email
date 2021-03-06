@@ -16,10 +16,10 @@ import com.sun.mail.util.MailSSLSocketFactory;
 public class SendEmail {
     public static void main(String[] args) throws GeneralSecurityException {
         //收件人电子邮箱
-        String to = "2748905573@qq.com";
+        String to = "收件人电子邮箱";
 
         //发件人电子邮箱
-        String from = "shaoruilin151@qq.com";
+        String from = "发件人电子邮箱";
 
         //指定发送邮件的主机为 smtp.qq.com
         String host = "smtp.qq.com";
@@ -40,7 +40,7 @@ public class SendEmail {
         //获取默认Session对象
         Session session = Session.getDefaultInstance(properties, new Authenticator() {
            public PasswordAuthentication getPasswordAuthentication() {
-               return new PasswordAuthentication("shaoruilin151@qq.com", "zzsaspblmsrydjef");
+               return new PasswordAuthentication("你的邮箱", "授权码");
            }
         });
 
@@ -53,13 +53,13 @@ public class SendEmail {
                 //Set To:头部字段
                 message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
                 //Set Subject:头部字段
-                message.setSubject("这是邵哥用Java邮件轰炸第" + i + "条");
-                //设置消息提
-                message.setText("小罗子你在干什么，小罗子你在干什么，小罗子你在干什么，小罗子你在干什么，小罗子你在干什么，小罗子你在干什么，小罗子你在干什么，小罗子你在干什么，小罗子你在干什么，小罗子你在干什么，小罗子你在干什么，小罗子你在干什么，；");
+                message.setSubject("邮箱的消息头");
+                //设置消息体
+                message.setText("邮箱的消息体");
 
                 //发送消息
                 Transport.send(message);
-                System.out.println("Sent message " + i + " successfully ... from shaoruilin151@qq.com");
+                System.out.println("Sent message " + i + " successfully ... from 你的邮箱");
             }
         } catch (AddressException e) {
             e.printStackTrace();
